@@ -14,6 +14,42 @@
       referrerpolicy="no-referrer"
     />
   </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("contact-form");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); // 🔴 MOST IMPORTANT
+
+        const data = {
+          name: document.querySelector("[name='name']").value,
+          email: document.querySelector("[name='email']").value,
+          number: document.querySelector("[name='number']").value,
+          content: document.querySelector("[name='content']").value,
+        };
+
+        fetch("/api/contact/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": document.querySelector("[name=csrfmiddlewaretoken]")
+              .value,
+          },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            if (res.success) {
+              alert("Message sent successfully!");
+              form.reset();
+            } else {
+              alert("Error: " + JSON.stringify(res.errors));
+            }
+          });
+      });
+    });
+  </script>
+
   <body>
     <!-- nav bar section -->
     <nav id="navbar" class="flex s-around bg-color">
@@ -174,55 +210,54 @@
     </section>
 
     <!-- Project Section -->
-<section id="project" class="project-section">
-  <h2 class="section-title">Projects</h2>
+    <section id="project" class="project-section">
+      <h2 class="section-title">Projects</h2>
 
-  <div class="project-container">
+      <div class="project-container">
+        <!-- Project Card 1 -->
+        <div class="project-card">
+          <h3 class="project-title">AWS Infrastructure Automation</h3>
 
-    <!-- Project Card 1 -->
-    <div class="project-card">
-      <h3 class="project-title">AWS Infrastructure Automation</h3>
+          <p class="project-desc">
+            Designed and managed AWS EC2 infrastructure using Terraform and
+            Ansible. Containerized applications using Docker and implemented
+            CI/CD pipelines for automated deployment.
+          </p>
 
-      <p class="project-desc">
-        Designed and managed AWS EC2 infrastructure using Terraform and Ansible.
-        Containerized applications using Docker and implemented CI/CD pipelines
-        for automated deployment.
-      </p>
+          <p class="project-tech">
+            <strong>Tech:</strong> AWS, Terraform, Ansible, Docker, GitHub
+          </p>
 
-      <p class="project-tech">
-        <strong>Tech:</strong> AWS, Terraform, Ansible, Docker, GitHub
-      </p>
+          <a href="#" target="_blank" class="btn project-btn">GitHub</a>
+        </div>
 
-      <a href="#" target="_blank" class="btn project-btn">GitHub</a>
-    </div>
+        <!-- Project Card 2 -->
+        <div class="project-card">
+          <h3 class="project-title">ToDo Application (Full Stack)</h3>
 
-    <!-- Project Card 2 -->
-    <div class="project-card">
-      <h3 class="project-title">ToDo Application (Full Stack)</h3>
+          <p class="project-desc">
+            Developed a full-stack ToDo application using Django and REST APIs.
+            Implemented authentication, CRUD operations, and deployed the
+            application on AWS EC2 using Docker with a fully automated CI/CD
+            pipeline.
+          </p>
 
-      <p class="project-desc">
-        Developed a full-stack ToDo application using Django and REST APIs.
-        Implemented authentication, CRUD operations, and deployed the application
-        on AWS EC2 using Docker with a fully automated CI/CD pipeline.
-      </p>
+          <p class="project-tech">
+            <strong>Tech:</strong> Django, SQLite, Docker, AWS EC2, GitHub
+            Actions
+          </p>
 
-      <p class="project-tech">
-        <strong>Tech:</strong> Django, SQLite, Docker, AWS EC2, GitHub Actions
-      </p>
-
-      <a href="#" target="_blank" class="btn project-btn">GitHub</a>
-    </div>
-
-  </div>
-</section>
-
+          <a href="#" target="_blank" class="btn project-btn">GitHub</a>
+        </div>
+      </div>
+    </section>
 
     <!-- contact me section -->
     <section id="contact" class="m-b-1">
       <h3 class="t-center my-2 t-white">Contact Me</h3>
       <div class="Contact-container flex s-around item-center">
         <div class="form" id="contactform">
-          <form method="post">
+          <form id="contact-form">
             {% csrf_token %}
             <div class="name form-div">
               <input
@@ -266,7 +301,7 @@
                 placeholder="Enter your message"
               ></textarea>
             </div>
-            <button type="submit" class="btn popinss" id="submit">send</button>
+            <button type="submit" class="btn">Send</button>
           </form>
         </div>
       </div>
