@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Ubuntu:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #1f1f38;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+}
+
+/* ================= NAVBAR ================= */
+
+#navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #1f1f38;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+#navbar ul {
+    list-style: none;
+}
+
+#navbar ul li {
+    margin: 0 1rem;
+}
+
+#navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    padding: 0.4rem 0.8rem;
+    transition: 0.3s;
+}
+
+#navbar ul li a:hover {
+    background-color: white;
+    color: #1f1f38;
+    border-radius: 6px;
+}
+
+/* ================= HOME SECTION ================= */
+
+.home-left,
+.home-right {
+    width: 50%;
+}
+
+.home-left {
+    padding: 6rem 4rem;
+}
+
+.home-content {
+    max-width: 600px;
+}
+
+.home-content h6 {
+    font-size: 1.2rem;
+    color: #df77ad;
+    margin-bottom: 0.5rem;
+}
+
+.home-content h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.home-content h1 span {
+    color: #df77ad;
+}
+
+.home-content h3 {
+    font-size: 1.5rem;
+    color: #df77ad;
+    margin-bottom: 1.5rem;
+}
+
+.home-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ddd;
+    margin-bottom: 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* IMAGE */
+
+.home-right {
+    position: relative;
+}
+
+.home-right img {
+    width: 300px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ================= ABOUT SECTION ================= */
+
+.about-section {
+    padding: 6rem 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    color: white;
+}
+
+.about-container {
+    gap: 4rem;
+}
+
+.about-content {
+    max-width: 600px;
+}
+
+.about-name {
+    font-size: 2 rem;
+    margin-bottom: 1rem;
+}
+
+.about-name span {
+    color: white;
+}
+
+.about-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #ddd;
+    margin-bottom: 24px;
+}
+
+.hire-btn {
+    display: inline-block;
+}
+
+/* Optional image styling */
+.about-image img {
+    width: 320px;
+    border-radius: 1rem;
+}
+
+/* ===== SKILLS SECTION ===== */
+
+.skills-section {
+    padding: 6rem 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    color: #fff;
+}
+
+/* Wrapper: Left + Right */
+.skills-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+/* Each column */
+.skills-column {
+    width: 50%;
+}
+
+/* Skill block */
+.skill {
+    margin-bottom: 1.8rem;
+}
+
+/* Skill title + percentage */
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: #ddd;
+}
+
+/* Bar background */
+.skill-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Bar fill */
+.skill-progress {
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #df77ad, #8f6dfd);
+    transition: width 0.6s ease;
+}
+
+/* ===== SKILL WIDTHS ===== */
+.terraform { width: 70%; }
+.ansible { width: 70%; }
+.docker { width: 80%; }
+.github-actions { width: 75%; }
+
+.python { width: 90%; }
+.cpp { width: 70%; }
+.c { width: 80%; }
+.html { width: 80%; }
+.css { width: 80%; }
+.js { width: 70%; }
+
+/* ================= PROJECT SECTION ================= */
+
+.project-section {
+    padding: 6rem 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    color: #fff;
+}
+
+/* Container */
+.project-container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+/* Card */
+.project-card {
+    background: #2c2c6c;
+    width: 360px;
+    padding: 2.5rem 2rem;
+    border-radius: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+/* Title */
+.project-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-align: center;
+}
+
+/* Description */
+.project-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ddd;
+    margin-bottom: 1.2rem;
+    text-align: center;
+}
+
+/* Tech stack */
+.project-tech {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 1.8rem;
+    text-align: center;
+}
+
+/* Button */
+.project-btn {
+    align-self: center;
+    padding: 0.7rem 1.6rem;
+}
+
+
+/* ================= CONTACT ================= */
+
+.m-b-1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    color: #fff;
+}
+.form {
+    width: 80%;
+    margin: auto;
+}
+
+.form-div input,
+textarea {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    margin: 0.5rem 0;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 0.5rem;
+    color: white;
+    resize: none;
+}
+/* ===== SUCCESS POPUP ===== */
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.popup-content {
+    background: #2c2c6c;
+    padding: 2.5rem 2rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    max-width: 400px;
+    color: white;
+}
+
+.popup-content h3 {
+    margin-bottom: 1rem;
+    color: #df77ad;
+}
+
+.popup-content p {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+
+/* ================= FOOTER FIX ================= */
+
+#footer {
+    background-color: #010101;
+    padding: 3rem 0 2rem;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    margin-bottom: 1.5rem;
+    padding: 0;
+}
+
+.footer-links li a {
+    color: #df77ad;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.footer-links li a:hover {
+    color: white;
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+    margin-bottom: 1.5rem;
+    padding: 0;
+}
+
+.footer-icons i {
+    background-color: #1f1f38;
+    padding: 0.7rem;
+    border-radius: 0.5rem;
+    color: white;
+    transition: 0.3s;
+}
+
+.footer-icons i:hover {
+    background-color: #df77ad;
+    color: #1f1f38;
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* ================= BUTTONS ================= */
+
+.btn {
+    font-size: 1rem;
+    color: #df77ad;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #df77ad;
+    border-radius: 0.4rem;
+    background: transparent;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: white;
+    color: #1f1f38;
+}
+
+.live {
+    background-color: #df77ad;
+    color: #1f1f38;
+}
+
+/* ================= UTILITIES ================= */
+
+.flex { display: flex; }
+.s-between { justify-content: space-between; }
+.s-around { justify-content: space-around; }
+.s-center { justify-content: center; }
+.items-center { align-items: center; }
+.f-col { flex-direction: column; }
+.t-center { text-align: center; }
+.m-auto { margin: auto; }
+.w-80 { width: 80%; }
+.my-2 { margin: 2rem 0; }
